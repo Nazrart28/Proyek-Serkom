@@ -9,6 +9,11 @@
 <body>
     <div class="container">
         <h2><%= title %></h2>
+        <% if (error) { %> <!-- Menambahkan pengecekan untuk pesan kesalahan -->
+            <div class="alert alert-danger" role="alert">
+                <%= error %> <!-- Menampilkan pesan kesalahan -->
+            </div>
+        <% } %>
         <table class="table">
             <thead>
               <tr>
@@ -50,11 +55,11 @@
                                                 <input type="hidden" name="id" value="<%= user.id %>">
                                                 <div class="mb-3">
                                                     <label for="nama<%= user.id %>" class="form-label">Nama Lengkap</label>
-                                                    <input type="text" class="form-control" name="nama" value="<%= user.nama %>">
+                                                    <input type="text" class="form-control" required name="nama" value="<%= user.nama %>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="kelas<%= user.id %>" class="form-label">Kelas</label>
-                                                    <input type="text" class="form-control" name="kelas" value="<%= user.kelas %>">
+                                                    <input type="text" class="form-control" required name="kelas" value="<%= user.kelas %>">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Update</button>
                                             </form>
@@ -72,13 +77,13 @@
             <div class="row mb-3">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-10">
-                    <input type="text" id="nama" name="nama" class="form-control">
+                    <input type="text" id="nama" name="nama" class="form-control" required>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
                 <div class="col-sm-10">
-                    <input type="text" id="kelas" name="kelas" class="form-control">
+                    <input type="text" id="kelas" name="kelas" class="form-control" required>
                 </div>
             </div>
             <input type="submit" class="btn btn-primary" value="Tambahkan"/>
